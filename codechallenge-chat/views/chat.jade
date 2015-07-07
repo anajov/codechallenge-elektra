@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    div(ng-controller='MessagesController')
+        input(ng-model='message')
+        button(ng-click='postMessage()') Post
+        hr
+        ul
+            li(ng-repeat='recentMessage in messages') {{ recentMessage.message.content }}

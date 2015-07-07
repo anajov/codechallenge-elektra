@@ -9,8 +9,8 @@ package com.tradeshift.messages.forjson;
 public class ResponseMessage {
     private final Message message;
 
-    public ResponseMessage(String name) {
-        message = new Message(name);
+    public ResponseMessage(String content) {
+        this.message = new Message(content);
     }
 
     public Message getMessage() {

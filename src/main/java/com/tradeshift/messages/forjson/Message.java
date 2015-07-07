@@ -8,14 +8,20 @@ package com.tradeshift.messages.forjson;
  */
 
 public class Message {
-    private final String content;
+    private String content;
 
-    public Message(String name) {
-        content = "Hello " + name;
+    public Message() {
+    }
+
+    public Message(String content) {
+        this.content = content;
     }
 
     public String getContent() {
         return content;
     }
 
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

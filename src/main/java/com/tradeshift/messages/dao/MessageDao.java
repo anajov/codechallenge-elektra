@@ -32,14 +32,14 @@ public class MessageDao {
 
         return jdbcTemplate.query(psql, new RowMapper<MessageRecord>() {
             public MessageRecord mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return new MessageRecord(rs.getInt("id"), rs.getString("name"),
+                return new MessageRecord(rs.getInt("id"), rs.getString("content"),
                         new DateTime(rs.getTimestamp("receivedAt")));
             }
         });
     }
 
-    public void insertMessage(String name) {
-        String psql = "INSERT INTO messages(name) VALUES(?);";
-        jdbcTemplate.update(psql, name);
+    public void insertMessage(String content) {
+        String psql = "INSERT INTO messages(content) VALUES(?);";
+        jdbcTemplate.update(psql, content);
     }
 }

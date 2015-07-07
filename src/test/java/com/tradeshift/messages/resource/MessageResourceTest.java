@@ -1,5 +1,6 @@
 package com.tradeshift.messages.resource;
 
+import com.tradeshift.messages.forjson.Message;
 import com.tradeshift.messages.forjson.ResponseMessage;
 import com.tradeshift.messages.forjson.ResponseRecentMessages;
 import com.tradeshift.messages.service.MessageService;
@@ -46,8 +47,8 @@ public class MessageResourceTest extends TestCase {
     @Test
     public void testGetResponseMessage() {
         setupTestGetResponseMessage();
-        ResponseMessage responseMsgs = msgResource.getResponseMessage(NAME);
-        assertEquals("Hello " + NAME, responseMsgs.getMessage().getContent());
+        ResponseMessage responseMsgs = msgResource.getResponseMessage(new Message(NAME));
+        assertEquals(NAME, responseMsgs.getMessage().getContent());
     }
 
     @Test

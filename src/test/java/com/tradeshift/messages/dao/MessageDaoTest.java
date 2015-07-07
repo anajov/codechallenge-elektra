@@ -63,7 +63,7 @@ public class MessageDaoTest extends TestCase {
         assertEquals(expectedMsgRecords.size(), msgRecords.size());
         for (int i = 0; i < msgRecords.size(); i++) {
             assertEquals(expectedMsgRecords.get(i).id, msgRecords.get(i).id);
-            assertEquals(expectedMsgRecords.get(i).name, msgRecords.get(i).name);
+            assertEquals(expectedMsgRecords.get(i).content, msgRecords.get(i).content);
             compareDateTimes(expectedMsgRecords.get(i).receivedAt, msgRecords.get(i).receivedAt);
         }
     }

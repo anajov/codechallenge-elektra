@@ -31,9 +31,9 @@ public class MessageService {
         this.msgDAO = msgDAO;
     }
 
-    public ResponseMessage getResponseMessage(String name) {
-        msgDAO.insertMessage(name);
-        return new ResponseMessage(name);
+    public ResponseMessage getResponseMessage(String message) {
+        msgDAO.insertMessage(message);
+        return new ResponseMessage(message);
     }
 
     public ResponseRecentMessages getRecentMessages() {
@@ -46,7 +46,7 @@ public class MessageService {
         List<ResponseMessage> recentMessages = new ArrayList<ResponseMessage>();
 
         for (MessageRecord msgRecord : msgRecords) {
-            recentMessages.add(new ResponseMessage(msgRecord.name));
+            recentMessages.add(new ResponseMessage(msgRecord.content));
         }
 
         return new ResponseRecentMessages(recentMessages.size(),

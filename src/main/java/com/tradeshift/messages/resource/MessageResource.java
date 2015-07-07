@@ -1,5 +1,6 @@
 package com.tradeshift.messages.resource;
 
+import com.tradeshift.messages.forjson.Message;
 import com.tradeshift.messages.forjson.ResponseMessage;
 import com.tradeshift.messages.forjson.ResponseRecentMessages;
 import com.tradeshift.messages.service.MessageService;
@@ -30,10 +31,12 @@ public class MessageResource {
     }
 
     @POST
-    @Path("/names/{name: [a-zA-Z]+ }")
+    @Path("/names")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseMessage getResponseMessage(@PathParam("name") String name) {
-        return msgService.getResponseMessage(name);
+    public ResponseMessage getResponseMessage(Message message) {
+        //TODO(ajo): Maybe change constructor for ResponseMessage and the rest.
+        return msgService.getResponseMessage(message.getContent());
     }
 
     @GET

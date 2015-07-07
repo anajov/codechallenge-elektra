@@ -10,12 +10,12 @@ import org.joda.time.DateTime;
  */
 public class MessageRecord {
     public final int id;
-    public final String name;
+    public final String content;
     public final DateTime receivedAt;
 
-    public MessageRecord(int id, String name, DateTime receivedAt) {
+    public MessageRecord(int id, String content, DateTime receivedAt) {
         this.id = id;
-        this.name = name;
+        this.content = content;
         this.receivedAt = receivedAt;
     }
 }

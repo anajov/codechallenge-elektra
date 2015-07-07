@@ -57,7 +57,7 @@ public class MessageServiceTest extends TestCase {
     @Test
     public void testGetResponseMessage() {
         ResponseMessage msg = msgService.getResponseMessage(NAME);
-        assertEquals("Hello " + NAME, msg.getMessage().getContent());
+        assertEquals(NAME, msg.getMessage().getContent());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class MessageServiceTest extends TestCase {
 
         assertEquals(expectedMsgRecords.size(), response.getMessagesCount());
         for (int i = 0; i < response.getMessagesCount(); i++) {
-            assertEquals("Hello " + expectedMsgRecords.get(i).name,
+            assertEquals(expectedMsgRecords.get(i).content,
                     response.getMessages().get(i).getMessage().getContent());
         }
 
