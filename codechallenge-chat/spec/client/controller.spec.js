@@ -3,8 +3,8 @@ describe('MessageController', function () {
         'messageCount': 2,
         'lastMessage': '2015-07-01T15:26:29Z',
         'messages': [
-            {'message': { 'content': 'fake message 1'}},
-            {'message': { 'content': 'fake message 2'}}
+            {'message': {'content': 'fake message 1'}},
+            {'message': {'content': 'fake message 2'}}
         ]
     };
 
@@ -36,7 +36,7 @@ describe('MessageController', function () {
 
     var controller, scope;
 
-    beforeEach(function() {
+    beforeEach(function () {
         spyOn(listenServiceMock, 'on');
     });
 
@@ -62,7 +62,7 @@ describe('MessageController', function () {
         expect(scope.messages.messages).toEqual(fakeMessagesJson.messages);
     });
 
-    it('should have called "on" method from ListenService mock', function() {
+    it('should have called "on" method from ListenService mock', function () {
         expect(listenServiceMock.on).toHaveBeenCalled();
     })
 

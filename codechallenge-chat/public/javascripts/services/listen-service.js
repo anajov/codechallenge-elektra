@@ -1,8 +1,7 @@
-var ioClient = require("socket.io-client");
+var ioClient = require('socket.io-client');
 
 module.exports = function($rootScope) {
-    //TODO(ajo): This shouldn't be hard-coded!
-    var socket = ioClient.connect('http://localhost:3000');
+    var socket = ioClient.connect();
     return {
         on: function (eventName, callback) {
             socket.on(eventName, function () {

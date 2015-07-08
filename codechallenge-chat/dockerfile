@@ -1,0 +1,11 @@
+FROM node:0.10
+
+RUN mkdir /frontend
+ADD . /frontend
+WORKDIR /frontend
+
+RUN npm install
+
+EXPOSE 3000
+
+ENTRYPOINT npm start

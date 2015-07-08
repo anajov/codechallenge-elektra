@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var http = require('http');
 var socketIO = require('socket.io');
+var constants = require('../global-constants');
 
 router.attachServerToSocketIO = function (server) {
     router.io = socketIO.listen(server);
@@ -13,9 +14,9 @@ router.route('/').get(function (req, res, next) {
 
 router.route('/recent').get(function (req, res, next) {
     var options = {
-        host: '192.168.59.103',
+        host: constants.javaBackendIP,
         path: '/messages/recent',
-        port: '8080'
+        port: constants.javaBackendPort
     };
 
     callback = function (response) {
@@ -38,13 +39,12 @@ router.route('/recent').get(function (req, res, next) {
 router.route('/names').post(function (req, res, next) {
     var jsonString = '{ "content": "' + req.body.message + '" }';
 
-    //TODO(ajo): JSON.stringify is not safe! Change it.
     var jsonMessage = JSON.stringify(eval('(' + jsonString + ')'));
 
     var options = {
-        host: '192.168.59.103',
+        host: constants.javaBackendIP,
         path: '/messages/names',
-        port: '8080',
+        port: constants.javaBackendPort,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

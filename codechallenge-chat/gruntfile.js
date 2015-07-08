@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadNpmTasks('grunt-jasmine-nodejs');
 
     grunt.registerTask('default', ['browserify']);
     grunt.registerTask('test', ['karma']);
@@ -37,13 +37,11 @@ module.exports = function (grunt) {
                 }
             }
         },
-        jasmine: {
-            yourTask: {
-                //src: 'src/**/*.js',
-                options: {
-                    specs: 'spec/server/*spec.js',
-                    template: require('grunt-template-jasmine-requirejs')
-                }
+        jasmine_nodejs: {
+            your_target: {
+                specs: [
+                    "./spec/server/**"
+                ]
             }
         }
     });

@@ -21,25 +21,21 @@ describe('MessageService', function () {
         expect(content).toEqual('');
     });
 
-    it('should send a GET request', function() {
+    it('should send a GET request', function () {
         var testRecentMessages = {};
         var fakeRecentMessages = {
             'messageCount': 2,
             'lastMessage': '2015-07-01T15:26:29Z',
-            'messages': [{
-                'message': {
-                    'content': 'fake message 1'
-                },
-                'message': {
-                    'content': 'fake message 2'
-                }
-            }]
+            'messages': [
+                {'message': {'content': 'fake message 1'}},
+                {'message': {'content': 'fake message 2'}}
+            ]
         };
 
         httpBackendMock.expectGET('/messages/recent')
             .respond(fakeRecentMessages);
 
-        service.getRecentMessages(function(recentMessages) {
+        service.getRecentMessages(function (recentMessages) {
             testRecentMessages = recentMessages;
         });
 
